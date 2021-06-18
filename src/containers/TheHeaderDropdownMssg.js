@@ -118,7 +118,6 @@ const TheHeaderDropdownMssg = () => {
             </div>
           </div>
         </CDropdownItem>
-        <CDropdownItem href="#" className="text-center border-top"><strong>View all messages</strong></CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
   )

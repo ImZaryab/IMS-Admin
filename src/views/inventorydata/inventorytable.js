@@ -11,26 +11,27 @@ import {
   CPagination
 } from '@coreui/react'
 
-import usersData from './UsersData'
+
+import InventoryDataFill from './inventoryDataFill'
 
 const getBadge = status => {
   switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
+    case 'Available': return 'success'
+    case 'InShipping': return 'secondary'
+    case 'LowStock': return 'warning'
+    case 'Unavailable': return 'danger'
     default: return 'primary'
   }
 }
 
-const Users = () => {
+const Inventorytable = () => {
   const history = useHistory()
   const queryPage = useLocation().search.match(/page=([0-9]+)/, '')
   const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1)
   const [page, setPage] = useState(currentPage)
 
   const pageChange = newPage => {
-    currentPage !== newPage && history.push(`/users?page=${newPage}`)
+    currentPage !== newPage && history.push(`/all-inventory?page=${newPage}`)
   }
 
   useEffect(() => {
@@ -42,20 +43,21 @@ const Users = () => {
       <CCol xl={12}>
         <CCard>
           <CCardHeader>
-            Users
+            Current Inventory
           </CCardHeader>
           <CCardBody>
           <CDataTable
-            items={usersData}
+            items={InventoryDataFill}
             fields={[
               { key: 'name', _classes: 'font-weight-bold' },
-              'registered', 'role', 'status'
+              'quantity', 'supplier', 'description', 'status'
             ]}
             hover
+            striped
             itemsPerPage={8}
             activePage={page}
             clickableRows
-            onRowClick={(item) => history.push(`/users/${item.id}`)}
+            onRowClick={(item) => history.push(`/inventorydata/${item.id}`)}
             scopedSlots = {{
               'status':
                 (item)=>(
@@ -70,7 +72,7 @@ const Users = () => {
           <CPagination
             activePage={page}
             onActivePageChange={pageChange}
-            pages={5}
+            pages={1}
             doubleArrows={false} 
             align="center"
           />
@@ -81,4 +83,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default Inventorytable

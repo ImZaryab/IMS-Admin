@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import {
   CButton,
   CCard,
@@ -14,8 +14,35 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import { useAuth } from '../../../contexts/AuthContext'
 
 const Register = () => {
+  
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const passwordConfirmRef = useRef()
+  const { signup } = useAuth()
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords Do Not Match!')
+    }
+
+    try{
+      setError('')
+      setLoading(true)
+      await signup(emailRef.current.value, passwordRef.current.value)
+    } catch {
+      setError('Failed To Create Account')
+    }
+    
+    setLoading(false)
+  }
+
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
       <CContainer>
@@ -23,8 +50,9 @@ const Register = () => {
           <CCol md="9" lg="7" xl="6">
             <CCard className="mx-4">
               <CCardBody className="p-4">
-                <CForm>
+                <CForm onSubmit={handleSubmit}>
                   <h1>Register</h1>
+                  {error && <div class="alert alert-danger" role="alert">{error}</div>}
                   <p className="text-muted">Create your account</p>
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
@@ -38,7 +66,7 @@ const Register = () => {
                     <CInputGroupPrepend>
                       <CInputGroupText>@</CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="text" placeholder="Email" autoComplete="email" />
+                    <CInput type="text" placeholder="Email" autoComplete="email" ref={emailRef} required />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
@@ -46,7 +74,7 @@ const Register = () => {
                         <CIcon name="cil-lock-locked" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="password" placeholder="Password" autoComplete="new-password" />
+                    <CInput type="password" placeholder="Password" autoComplete="new-password" ref={passwordRef} required />
                   </CInputGroup>
                   <CInputGroup className="mb-4">
                     <CInputGroupPrepend>
@@ -54,12 +82,12 @@ const Register = () => {
                         <CIcon name="cil-lock-locked" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="password" placeholder="Repeat password" autoComplete="new-password" />
+                    <CInput type="password" placeholder="Repeat password" autoComplete="new-password" ref={passwordConfirmRef} required/>
                   </CInputGroup>
-                  <CButton color="success" block>Create Account</CButton>
+                  <CButton disabled={loading} type="submit" color="success" block>Create Account</CButton>
                 </CForm>
               </CCardBody>
-              <CCardFooter className="p-4">
+              {/* <CCardFooter className="p-4">
                 <CRow>
                   <CCol xs="12" sm="6">
                     <CButton className="btn-facebook mb-1" block><span>facebook</span></CButton>
@@ -68,7 +96,7 @@ const Register = () => {
                     <CButton className="btn-twitter mb-1" block><span>twitter</span></CButton>
                   </CCol>
                 </CRow>
-              </CCardFooter>
+              </CCardFooter> */}
             </CCard>
           </CCol>
         </CRow>

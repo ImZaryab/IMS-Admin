@@ -6,15 +6,15 @@ import {
   CHeaderBrand,
   CHeaderNav,
   CHeaderNavItem,
-  CHeaderNavLink,
-  CSubheader,
-  CBreadcrumbRouter,
-  CLink
+  CHeaderNavLink
+ // CSubheader,
+  //CBreadcrumbRouter,
+ // CLink
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+//import CIcon from '@coreui/icons-react'
 
 // routes config
-import routes from '../routes'
+ //import routes from '../routes'
 
 import { 
   TheHeaderDropdown,
@@ -49,8 +49,17 @@ const TheHeader = () => {
         className="ml-3 d-md-down-none"
         onClick={toggleSidebar}
       />
+
+      {//The following Header is Responsive and pops up on < medium screens 
+        }
       <CHeaderBrand className="mx-auto d-lg-none" to="/">
-        <CIcon name="logo" height="48" alt="Logo"/>
+      <div className="">
+          {/* <CImg
+            src={'avatars/logoho.png'}
+            className="c-avatar-img"
+            alt="admin@bootstrapmaster.com"
+          /> */}
+        </div>
       </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none mr-auto">
@@ -61,18 +70,18 @@ const TheHeader = () => {
           <CHeaderNavLink to="/users">Users</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
+          <CHeaderNavLink to="/settings">Settings</CHeaderNavLink>
         </CHeaderNavItem>
       </CHeaderNav>
 
       <CHeaderNav className="px-3">
         <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
-        <TheHeaderDropdownMssg/>
+        {/* <TheHeaderDropdownMssg/> */}
         <TheHeaderDropdown/>
       </CHeaderNav>
 
-      <CSubheader className="px-3 justify-content-between">
+      {/* <CSubheader className="px-3 justify-content-between">
         <CBreadcrumbRouter 
           className="border-0 c-subheader-nav m-0 px-0 px-md-3" 
           routes={routes} 
@@ -92,7 +101,7 @@ const TheHeader = () => {
               <CIcon name="cil-settings" alt="Settings" />&nbsp;Settings
             </CLink>
           </div>
-      </CSubheader>
+      </CSubheader> */}
     </CHeader>
   )
 }

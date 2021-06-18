@@ -5,7 +5,7 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
-  CProgress
+  // CProgress
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -34,7 +34,9 @@ const TheHeaderDropdownNotif = () => {
         <CDropdownItem><CIcon name="cil-chart-pie" className="mr-2 text-info" /> Sales report is ready</CDropdownItem>
         <CDropdownItem><CIcon name="cil-basket" className="mr-2 text-primary" /> New client</CDropdownItem>
         <CDropdownItem><CIcon name="cil-speedometer" className="mr-2 text-warning" /> Server overloaded</CDropdownItem>
-        <CDropdownItem
+        <CDropdownItem href="#" className="text-center border-top"><strong>Read All</strong></CDropdownItem>
+
+        {/* <CDropdownItem
           header
           tag="div"
           color="light"
@@ -61,7 +63,7 @@ const TheHeaderDropdownNotif = () => {
           </div>
           <CProgress size="xs" color="danger" value={90} />
           <small className="text-muted">243GB/256GB</small>
-        </CDropdownItem>
+        </CDropdownItem> */}
       </CDropdownMenu>
     </CDropdown>
   )

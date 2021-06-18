@@ -17,13 +17,14 @@ const MainChartExample = attributes => {
     const data2 = []
     const data3 = []
     for (let i = 0; i <= elements; i++) {
+      //this for loop generates the value slopes for all three values
       data1.push(random(50, 200))
       data2.push(random(80, 100))
-      data3.push(65)
+      data3.push(random(65, 80))
     }
     return [
       {
-        label: 'My First dataset',
+        label: 'Pay Orders Generated',
         backgroundColor: hexToRgba(brandInfo, 10),
         borderColor: brandInfo,
         pointHoverBackgroundColor: brandInfo,
@@ -31,7 +32,7 @@ const MainChartExample = attributes => {
         data: data1
       },
       {
-        label: 'My Second dataset',
+        label: 'Unique Customers',
         backgroundColor: 'transparent',
         borderColor: brandSuccess,
         pointHoverBackgroundColor: brandSuccess,
@@ -39,7 +40,7 @@ const MainChartExample = attributes => {
         data: data2
       },
       {
-        label: 'My Third dataset',
+        label: 'Suppliers Contracted',
         backgroundColor: 'transparent',
         borderColor: brandDanger,
         pointHoverBackgroundColor: brandDanger,
@@ -66,8 +67,8 @@ const MainChartExample = attributes => {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
-              stepSize: Math.ceil(250 / 5),
-              max: 250
+              stepSize: Math.ceil(250 / 5), //Change this for value ceiling
+              max: 250 //Change this for Y-axis Cap
             },
             gridLines: {
               display: true

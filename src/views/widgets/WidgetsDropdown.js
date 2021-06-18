@@ -19,7 +19,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="9.823"
+          header="23"
           text="Members online"
           footerSlot={
             <ChartLineSimple
@@ -34,7 +34,7 @@ const WidgetsDropdown = () => {
           }
         >
           <CDropdown>
-            <CDropdownToggle color="transparent">
+            <CDropdownToggle caret={false} color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">
@@ -50,8 +50,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="9.823"
-          text="Members online"
+          header="15"
+          text="Contracts Today"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -60,14 +60,14 @@ const WidgetsDropdown = () => {
               dataPoints={[1, 18, 9, 17, 34, 22, 11]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
-              label="Members"
+              label="Contracts"
               labels="months"
             />
           }
         >
           <CDropdown>
             <CDropdownToggle caret={false} color="transparent">
-              <CIcon name="cil-location-pin"/>
+            <CIcon name="cil-settings"/>
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">
               <CDropdownItem>Action</CDropdownItem>
@@ -82,8 +82,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9.823"
-          text="Members online"
+          header="23"
+          text="Contracts In-Processing"
           footerSlot={
             <ChartLineSimple
               className="mt-3"
@@ -92,13 +92,13 @@ const WidgetsDropdown = () => {
               dataPoints={[78, 81, 80, 45, 34, 12, 40]}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
-              label="Members"
+              label="Contracts"
               labels="months"
             />
           }
         >
           <CDropdown>
-            <CDropdownToggle color="transparent">
+            <CDropdownToggle caret={false} color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">
@@ -114,20 +114,20 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
-          text="Members online"
+          header="12"
+          text="Contracts Pending"
           footerSlot={
             <ChartBarSimple
               className="mt-3 mx-3"
               style={{height: '70px'}}
               backgroundColor="rgb(250, 152, 152)"
-              label="Members"
+              label="Contracts"
               labels="months"
             />
           }
         >
           <CDropdown>
-            <CDropdownToggle caret className="text-white" color="transparent">
+            <CDropdownToggle caret={false} className="text-white" color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">

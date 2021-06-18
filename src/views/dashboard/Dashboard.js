@@ -1,23 +1,24 @@
-import React, { lazy } from 'react'
+import React, { lazy } from "react";
 import {
-  CBadge,
+  //CBadge,
   CButton,
   CButtonGroup,
   CCard,
   CCardBody,
   CCardFooter,
-  CCardHeader,
+  //CCardHeader,
   CCol,
   CProgress,
   CRow,
-  CCallout
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+  //CCallout,
+  CImg
+} from "@coreui/react";
+import CIcon from "@coreui/icons-react";
 
-import MainChartExample from '../charts/MainChartExample.js'
+import MainChartExample from "../charts/MainChartExample.js";
 
-const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
-const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
+const WidgetsDropdown = lazy(() => import("../widgets/WidgetsDropdown.js"));
+const WidgetsBrand = lazy(() => import("../widgets/WidgetsBrand.js"));
 
 const Dashboard = () => {
   return (
@@ -27,36 +28,36 @@ const Dashboard = () => {
         <CCardBody>
           <CRow>
             <CCol sm="5">
-              <h4 id="traffic" className="card-title mb-0">Traffic</h4>
-              <div className="small text-muted">November 2017</div>
+              <h4 id="traffic" className="card-title mb-0">
+                Analytics
+              </h4>
+              <div className="small text-muted">April 2021</div>
             </CCol>
             <CCol sm="7" className="d-none d-md-block">
-              <CButton color="primary" className="float-right">
+              {/* <CButton color="primary" className="float-right">
                 <CIcon name="cil-cloud-download"/>
-              </CButton>
+              </CButton> */}
               <CButtonGroup className="float-right mr-3">
-                {
-                  ['Day', 'Month', 'Year'].map(value => (
-                    <CButton
-                      color="outline-secondary"
-                      key={value}
-                      className="mx-0"
-                      active={value === 'Month'}
-                    >
-                      {value}
-                    </CButton>
-                  ))
-                }
+                {["Day", "Month", "Year"].map((value) => (
+                  <CButton
+                    color="outline-secondary"
+                    key={value}
+                    className="mx-0"
+                    active={value === "Month"}
+                  >
+                    {value}
+                  </CButton>
+                ))}
               </CButtonGroup>
             </CCol>
           </CRow>
-          <MainChartExample style={{height: '300px', marginTop: '40px'}}/>
+          <MainChartExample style={{ height: "300px", marginTop: "40px" }} />
         </CCardBody>
         <CCardFooter>
           <CRow className="text-center">
             <CCol md sm="12" className="mb-sm-2 mb-0">
-              <div className="text-muted">Visits</div>
-              <strong>29.703 Users (40%)</strong>
+              <div className="text-muted">Pay Orders Completed</div>
+              <strong>Successful Pay Orders (40%)</strong>
               <CProgress
                 className="progress-xs mt-2"
                 precision={1}
@@ -65,38 +66,38 @@ const Dashboard = () => {
               />
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0 d-md-down-none">
-              <div className="text-muted">Unique</div>
-              <strong>24.093 Users (20%)</strong>
+              <div className="text-muted">Unique Customer Orders</div>
+              <strong>24.093 Orders (20%)</strong>
               <CProgress
                 className="progress-xs mt-2"
                 precision={1}
                 color="info"
-                value={40}
+                value={20}
               />
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0">
-              <div className="text-muted">Pageviews</div>
-              <strong>78.706 Views (60%)</strong>
+              <div className="text-muted">Remaining Shipping</div>
+              <strong>Delivery In-wait (60%)</strong>
               <CProgress
                 className="progress-xs mt-2"
                 precision={1}
                 color="warning"
-                value={40}
+                value={60}
               />
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0">
-              <div className="text-muted">New Users</div>
-              <strong>22.123 Users (80%)</strong>
+              <div className="text-muted">Inventory Stock</div>
+              <strong>Remaining Inventory (80%)</strong>
               <CProgress
                 className="progress-xs mt-2"
                 precision={1}
                 color="danger"
-                value={40}
+                value={80}
               />
             </CCol>
             <CCol md sm="12" className="mb-sm-2 mb-0 d-md-down-none">
-              <div className="text-muted">Bounce Rate</div>
-              <strong>Average Rate (40.15%)</strong>
+              <div className="text-muted">Daily Milestone</div>
+              <strong>Daily Orders Completed (40%)</strong>
               <CProgress
                 className="progress-xs mt-2"
                 precision={1}
@@ -107,9 +108,9 @@ const Dashboard = () => {
         </CCardFooter>
       </CCard>
 
-      <WidgetsBrand withCharts/>
+      <WidgetsBrand withCharts />
 
-      <CRow>
+      {/* <CRow>
         <CCol>
           <CCard>
             <CCardHeader>
@@ -323,10 +324,11 @@ const Dashboard = () => {
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">
                   <tr>
-                    <th className="text-center"><CIcon name="cil-people" /></th>
+                    <th className="text-center">
+                      <CIcon name="cil-people" />
+                    </th>
                     <th>User</th>
                     <th className="text-center">Country</th>
-                    <th>Usage</th>
                     <th className="text-center">Payment Method</th>
                     <th>Activity</th>
                   </tr>
@@ -335,7 +337,11 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/1.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/1.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-success"></span>
                       </div>
                     </td>
@@ -354,13 +360,24 @@ const Dashboard = () => {
                           <strong>50%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="success" value="50" />
+                      <CProgress
+                        className="progress-xs"
+                        color="success"
+                        value="50"
+                      />
                     </td>
                     <td className="text-center">
-                      <CIcon height={25} name="cib-cc-mastercard" />
+                      <CImg
+                        src={"avatars/cil-cash.svg"}
+                        className=""
+                        alt="Cash Icon"
+                        height={30}
+                      />
                     </td>
                     <td>
                       <div className="small text-muted">Last login</div>
@@ -370,14 +387,17 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/2.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/2.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-danger"></span>
                       </div>
                     </td>
                     <td>
                       <div>Avram Tarasios</div>
                       <div className="small text-muted">
-
                         <span>Recurring</span> | Registered: Jan 1, 2015
                       </div>
                     </td>
@@ -390,10 +410,16 @@ const Dashboard = () => {
                           <strong>10%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="info" value="10" />
+                      <CProgress
+                        className="progress-xs"
+                        color="info"
+                        value="10"
+                      />
                     </td>
                     <td className="text-center">
                       <CIcon height={25} name="cib-cc-visa" />
@@ -406,7 +432,11 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/3.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/3.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-warning"></span>
                       </div>
                     </td>
@@ -425,10 +455,16 @@ const Dashboard = () => {
                           <strong>74%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="warning" value="74" />
+                      <CProgress
+                        className="progress-xs"
+                        color="warning"
+                        value="74"
+                      />
                     </td>
                     <td className="text-center">
                       <CIcon height={25} name="cib-stripe" />
@@ -441,7 +477,11 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/4.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/4.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-secondary"></span>
                       </div>
                     </td>
@@ -460,10 +500,16 @@ const Dashboard = () => {
                           <strong>98%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="danger" value="98" />
+                      <CProgress
+                        className="progress-xs"
+                        color="danger"
+                        value="98"
+                      />
                     </td>
                     <td className="text-center">
                       <CIcon height={25} name="cib-paypal" />
@@ -476,7 +522,11 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/5.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/5.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-success"></span>
                       </div>
                     </td>
@@ -495,13 +545,19 @@ const Dashboard = () => {
                           <strong>22%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="info" value="22" />
+                      <CProgress
+                        className="progress-xs"
+                        color="info"
+                        value="22"
+                      />
                     </td>
                     <td className="text-center">
-                      <CIcon height={25} name="cib-google-pay"/>
+                      <CIcon height={25} name="cib-google-pay" />
                     </td>
                     <td>
                       <div className="small text-muted">Last login</div>
@@ -511,7 +567,11 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'avatars/6.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img
+                          src={"avatars/6.jpg"}
+                          className="c-avatar-img"
+                          alt="admin@bootstrapmaster.com"
+                        />
                         <span className="c-avatar-status bg-danger"></span>
                       </div>
                     </td>
@@ -530,10 +590,16 @@ const Dashboard = () => {
                           <strong>43%</strong>
                         </div>
                         <div className="float-right">
-                          <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                          <small className="text-muted">
+                            Jun 11, 2015 - Jul 10, 2015
+                          </small>
                         </div>
                       </div>
-                      <CProgress className="progress-xs" color="success" value="43" />
+                      <CProgress
+                        className="progress-xs"
+                        color="success"
+                        value="43"
+                      />
                     </td>
                     <td className="text-center">
                       <CIcon height={25} name="cib-cc-amex" />
@@ -545,13 +611,12 @@ const Dashboard = () => {
                   </tr>
                 </tbody>
               </table>
-
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
