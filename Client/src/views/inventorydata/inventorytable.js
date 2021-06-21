@@ -10,9 +10,6 @@ import {
   CRow,
   CPagination
 } from '@coreui/react'
-
-
-import InventoryDataFill from './inventoryDataFill'
 import Axios from 'axios'
 
 const getBadge = status => {

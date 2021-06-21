@@ -17,7 +17,7 @@ useEffect(() => {
   Axios.get("http://localhost:3001/api/get").then((response) => {
     setInventoryData(response.data)
   })
-}, [])
+})
 
 const handleDelete = (ItemID) => {
   Axios.delete(`http://localhost:3001/api/delete/${ItemID}`)
@@ -29,6 +29,10 @@ const handleDelete = (ItemID) => {
   const item = inventoryData.find( item => item.item_id.toString() === match.params.id)
   const itemDetails = item ? Object.entries(item) : 
     [['id', (<span><CIcon className="text-muted" /> Not found</span>)]]
+
+  const handleUpdateRoute = () => {
+    if(item) history.push(`/inventorydata/${item.item_id}/${item.item_id}`)
+  }
 
   return (
     <CRow>
@@ -53,7 +57,7 @@ const handleDelete = (ItemID) => {
                 </tbody>
               </table>
               <div className="d-flex justify-content-center">
-              <button type="button" class="btn btn-ghost-success">Update</button>
+              <button type="button" class="btn btn-ghost-success" onClick={handleUpdateRoute}>Update</button>
               <button type="button" class="btn btn-ghost-danger" onClick={() => handleDelete(item.item_id.toString())}>Delete</button>
               </div>
           </CCardBody>

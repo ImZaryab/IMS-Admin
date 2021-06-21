@@ -40,6 +40,7 @@ const User = React.lazy(() => import('./views/users/User'));
 const AllInventory = React.lazy(()=> import('./views/inventorydata/inventorytable'));
 const AddItem = React.lazy(()=> import('./views/inventory/AddItem'));
 const item = React.lazy(() => import('./views/inventorydata/item'));
+const itemUpdate = React.lazy(()=> import('./views/inventory/UpdateItem/UpdateItem'));
 const items = React.lazy(()=> import('./views/inventorydata/inventorytable'));
 const settings = React.lazy(() => import('./views/settings/Settings'));
 
@@ -87,6 +88,7 @@ const routes = [
 
   { path: '/inventorydata/inventorytable', exact: true,  name: 'Items', component: items },
   { path: '/inventorydata/:id', exact: true, name: 'Item Details', component: item },
+  { path: '/inventorydata/:id/:id', exact: true, name: 'Update Item Details', component: itemUpdate },
 
   { path: '/inventorydata', name: 'Inventory', component: AllInventory, exact: true},
   { path: '/inventorydata/inventorytable', name: 'All Inventory', component: AllInventory},

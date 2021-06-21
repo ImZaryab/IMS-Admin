@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import Axios from 'axios'
-
+import { useHistory } from 'react-router-dom';
 import {
     CButton,
     CCard,
@@ -9,69 +9,86 @@ import {
     CInput,
     CInputGroup
   } from '@coreui/react'
-  //import CIcon from '@coreui/icons-react'
 
-export default function UpdateItem() {
-    const [itemName, setItemName] = useState('');
+import { CCardHeader, CCol, CRow } from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+
+const UpdateItem = ({match}) => {
+
+let history = useHistory();
+
+const [inventoryData, setInventoryData] = useState([])
+const [itemName, setItemName] = useState("");
 const [itemQuantity, setItemQuantity] = useState(0);
-const [itemDesc, setItemDesc] = useState('');
+const [itemDesc, setItemDesc] = useState("");
 
+useEffect(() => {
+  Axios.get("http://localhost:3001/api/get").then((response) => {
+    setInventoryData(response.data)
+  })
+}, [])
+
+const item = inventoryData.find( item => item.item_id.toString() === match.params.id)
+const itemDetails = item ? item : 
+  [['id', (<span><CIcon className="text-muted" /> Not found</span>)]];
+
+  const ItemData = {
+    ItemName: itemDetails.item_name, 
+    ItemQuantity: itemDetails.item_quantity, 
+    ItemDescription: itemDetails.item_description,
+    ItemID: itemDetails.item_id
+  }
 
 const handleItemNameChange = (e) => {
-  setItemName(e.target.value)
+    ItemData.ItemName = e.target.value
 }
 
 const handleItemQuantityChange = (e) => {
-  setItemQuantity(e.target.value)
+    ItemData.ItemQuantity = e.target.value
 }
 
 const handleItemDescChange = (e) => {
-  setItemDesc(e.target.value)
+    ItemData.ItemDescription = e.target.value
 }
 
-const handleSubmit = (e) => {
-  
-  const ItemData = {
-    ItemName: itemName, 
-    ItemQuantity: itemQuantity, 
-    ItemDescription: itemDesc
+const handleUpdate = () => {
+    Axios.put("http://localhost:3001/api/update", ItemData)
+    history.push(`/inventorydata/${item.item_id}`)
   }
 
-  Axios.post("http://localhost:3001/api/insert", ItemData).then(() => {
-    alert('Successfully Added Data!')
-  })
-}
+  console.log(ItemData)
 
-
-    return(
-        <div>
-
-<CCard className="mx-5">
-              <CCardBody className="p-4">
-                <CForm onSubmit={handleSubmit}>
-                  <h1>Add Item To Inventory</h1>
+  return (
+    <CRow>
+      <CCol lg={6}>
+        <CCard>
+          <CCardHeader>
+            Product ID: {itemDetails.item_id}
+          </CCardHeader>
+          <CCardBody>
+          <CForm onSubmit={handleUpdate}>
+                  <h1>Update Item Details</h1>
 
                   <CInputGroup className="mb-3">
-                    <CInput type="text" name="itemName" placeholder="Item Name" autoComplete="itemname" onChange={handleItemNameChange}/>
+                    <CInput type="text" defaultValue={itemDetails.item_name} name="itemName"  autoComplete="itemname" onChange={handleItemNameChange}/>
                   </CInputGroup>
 
                   <CInputGroup className="mb-3">
-                    <CInput type="text" placeholder="Item ID" autoComplete="itemid" />
-                  </CInputGroup>
-
-                  <CInputGroup className="mb-3">
-                    <CInput type="number" name="itemQuantity" placeholder="Quantity" min="1" onChange={handleItemQuantityChange}/>
+                    <CInput type="number" defaultValue={itemDetails.item_quantity} name="itemQuantity"  min="1" onChange={handleItemQuantityChange}/>
                   </CInputGroup>
 
                   <CInputGroup className="mb-4">
-                    <CInput type="text" name="itemDescription" placeholder="Item Description" autoComplete="itemdesc" onChange={handleItemDescChange}/>
+                    <CInput type="text" defaultValue={itemDetails.item_description} name="itemDescription"  autoComplete="itemdesc" onChange={handleItemDescChange}/>
                   </CInputGroup>
-
-                  <CButton type="submit" color="success" block>Add Item</CButton>
+                  <div className="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-ghost-success" >Save Changes</button>
+                  </div>
                 </CForm>
-              </CCardBody>
-            </CCard>
-
-        </div>
-    )   
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
+  )
 }
+
+export default UpdateItem;

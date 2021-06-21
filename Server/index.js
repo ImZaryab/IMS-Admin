@@ -23,6 +23,8 @@ app.get('/', (req, res)=> {
     res.send("Hello Zaryab!")
 })
 
+
+//READ ACCESS
 app.get('/api/get', (req, res)=> {
     const sqlSelect = "SELECT * FROM inventory";
     db.query(sqlSelect, (err, result)=> {
@@ -30,6 +32,20 @@ app.get('/api/get', (req, res)=> {
     })
 })
 
+//UPDATE ACCESS
+app.put('/api/update', (req, res)=> {
+    const ItemName = req.body.ItemName;
+    const ItemQuantity = req.body.ItemQuantity;
+    const ItemDescription = req.body.ItemDescription;
+    const ItemID = req.body.ItemID
+    const sqlUpdate = "UPDATE inventory SET item_name = ?, item_quantity = ?, item_description = ? WHERE item_id = ?"
+    
+    db.query(sqlUpdate, [ItemName, ItemQuantity, ItemDescription, ItemID], (err, result)=> {
+        if(err) console.log(err);
+    })
+})
+
+//DELETE ACCESS
 app.delete('/api/delete/:item_id', (req, res)=> {
     const itemID = req.params.item_id
     const sqlDelete = "DELETE FROM inventory WHERE item_id = ?"
@@ -41,6 +57,7 @@ app.delete('/api/delete/:item_id', (req, res)=> {
     })
 })
 
+//CREATE ACCESS
 app.post("/api/insert", (req, res) => {
 
     const ItemName = req.body.ItemName;
