@@ -23,7 +23,7 @@ const [itemQuantity, setItemQuantity] = useState(0);
 const [itemDesc, setItemDesc] = useState("");
 
 useEffect(() => {
-  Axios.get("http://localhost:3001/api/get").then((response) => {
+  Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
     setInventoryData(response.data)
   })
 }, [])
@@ -52,7 +52,7 @@ const handleItemDescChange = (e) => {
 }
 
 const handleUpdate = () => {
-    Axios.put("http://localhost:3001/api/update", ItemData)
+    Axios.put("https://ims-backend.herokuapp.com/api/update", ItemData)
     history.push(`/inventorydata/${item.item_id}`)
   }
 
