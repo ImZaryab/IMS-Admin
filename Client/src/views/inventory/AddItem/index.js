@@ -38,7 +38,7 @@ const handleSubmit = (e) => {
     ItemDescription: itemDesc
   }
 
-  Axios.post("http://localhost:3001/api/insert", ItemData).then(() => {
+  Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
     alert('Successfully Added Data!')
   })
 }
