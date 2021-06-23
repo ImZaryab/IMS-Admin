@@ -7,9 +7,6 @@ package-lock.json
 # testing
 /coverage
 
-# production
-/build
-
 # misc
 .eslintcache
 .DS_Store
