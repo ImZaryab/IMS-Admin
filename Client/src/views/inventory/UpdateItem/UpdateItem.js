@@ -23,9 +23,14 @@ const [itemQuantity, setItemQuantity] = useState(0);
 const [itemDesc, setItemDesc] = useState("");
 
 useEffect(() => {
-  Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+  // Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+  //   setInventoryData(response.data)
+  // })
+
+  Axios.get("localhost:3001/api/get").then((response) => {
     setInventoryData(response.data)
   })
+
 }, [])
 
 const item = inventoryData.find( item => item.item_id.toString() === match.params.id)
@@ -52,7 +57,10 @@ const handleItemDescChange = (e) => {
 }
 
 const handleUpdate = () => {
-    Axios.put("https://ims-backend.herokuapp.com/api/update", ItemData)
+    // Axios.put("https://ims-backend.herokuapp.com/api/update", ItemData)
+    // history.push(`/inventorydata/${item.item_id}`)
+
+    Axios.put("localhost:3001/api/update", ItemData)
     history.push(`/inventorydata/${item.item_id}`)
   }
 

@@ -40,9 +40,14 @@ const Inventorytable = () => {
   }, [currentPage, page])
 
   useEffect(() => {
-    Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+    // Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+    //   setInventoryData(response.data)
+    // })
+
+    Axios.get("localhost:3001/api/get").then((response) => {
       setInventoryData(response.data)
     })
+
   }, [])
 
   return (

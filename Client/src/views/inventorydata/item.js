@@ -14,13 +14,19 @@ const Item = ({match}) => {
   const [inventoryData, setInventoryData] = useState([])
 
 useEffect(() => {
-  Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+  // Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
+  //   setInventoryData(response.data)
+  // })
+
+  Axios.get("localhost:3001/api/get").then((response) => {
     setInventoryData(response.data)
   })
 })
 
 const handleDelete = (ItemID) => {
-  Axios.delete(`https://ims-backend.herokuapp.com/api/delete/${ItemID}`)
+  // Axios.delete(`https://ims-backend.herokuapp.com/api/delete/${ItemID}`)
+
+  Axios.delete(`localhost:3001/api/delete/${ItemID}`)
 
   //redirect to previous page
   history.goBack();

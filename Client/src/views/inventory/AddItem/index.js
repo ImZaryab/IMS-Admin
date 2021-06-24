@@ -13,35 +13,41 @@ import {
 
 const AddItem = (props) => {
 
-const [itemName, setItemName] = useState('');
-const [itemQuantity, setItemQuantity] = useState(0);
-const [itemDesc, setItemDesc] = useState('');
+// const [itemName, setItemName] = useState('');
+// const [itemQuantity, setItemQuantity] = useState(0);
+// const [itemDesc, setItemDesc] = useState('');
 
 
-const handleItemNameChange = (e) => {
-  setItemName(e.target.value)
-}
+// const handleItemNameChange = (e) => {
+//   setItemName(e.target.value)
+// }
 
-const handleItemQuantityChange = (e) => {
-  setItemQuantity(e.target.value)
-}
+// const handleItemQuantityChange = (e) => {
+//   setItemQuantity(e.target.value)
+// }
 
-const handleItemDescChange = (e) => {
-  setItemDesc(e.target.value)
-}
+// const handleItemDescChange = (e) => {
+//   setItemDesc(e.target.value)
+// }
 
-const handleSubmit = (e) => {
+// const handleSubmit = (e) => {
   
-  const ItemData = {
-    ItemName: itemName, 
-    ItemQuantity: itemQuantity, 
-    ItemDescription: itemDesc
-  }
+//   const ItemData = {
+//     ItemName: itemName, 
+//     ItemQuantity: itemQuantity, 
+//     ItemDescription: itemDesc
+//   }
 
-  Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
-    alert('Successfully Added Data!')
-  })
-}
+  // Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
+  //   alert('Successfully Added Data!')
+  // })
+
+
+//   Axios.post("localhost:3001/api/insert", ItemData).then(() => {
+//     alert('Successfully Added Data!')
+//   })
+
+// }
 
 
     return(
