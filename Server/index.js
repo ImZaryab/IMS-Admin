@@ -18,16 +18,6 @@ app.use(express.json())
 //middleware
 app.use(express.urlencoded({extended: true}))
 
-/////Experimental Additions
-
-app.get('/*', function (req, res, next) {
-    if (!req.path.includes('api'))
-        res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    else next();
-});
-
-app.use(express.static(path.join(__dirname, 'build')));
-
 //READ ACCESS
 app.get('/api/get', (req, res)=> {
     const sqlSelect = "SELECT * FROM inventory";
