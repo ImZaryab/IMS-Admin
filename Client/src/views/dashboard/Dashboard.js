@@ -9,11 +9,8 @@ import {
   //CCardHeader,
   CCol,
   CProgress,
-  CRow,
-  //CCallout,
-  CImg
+  CRow
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
 
 import MainChartExample from "../charts/MainChartExample.js";
 

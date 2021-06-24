@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect} from 'react';
 import Axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import {
-    CButton,
     CCard,
     CCardBody,
     CForm,
@@ -18,9 +17,6 @@ const UpdateItem = ({match}) => {
 let history = useHistory();
 
 const [inventoryData, setInventoryData] = useState([])
-const [itemName, setItemName] = useState("");
-const [itemQuantity, setItemQuantity] = useState(0);
-const [itemDesc, setItemDesc] = useState("");
 
 useEffect(() => {
   // Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
