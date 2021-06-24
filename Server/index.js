@@ -4,11 +4,18 @@ const mysql = require('mysql')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+// const db = mysql.createPool({
+//     host: 'db4free.net',
+//     user: 'ims_root',
+//     password: 'intellisync12',
+//     database: 'ims_dev'
+// })
+
 const db = mysql.createPool({
-    host: 'db4free.net',
-    user: 'ims_root',
+    host: 'localhost',
+    user: 'root',
     password: 'intellisync12',
-    database: 'ims_dev'
+    database: 'ims_db'
 })
 
 //middleware to parse data as json object
@@ -17,6 +24,10 @@ app.use(express.json())
 
 //middleware
 app.use(express.urlencoded({extended: true}))
+
+app.get('/', (req, res)=> {
+    console.log("Hello")
+})
 
 //READ ACCESS
 app.get('/api/get', (req, res)=> {
@@ -68,6 +79,10 @@ app.post("/api/insert", (req, res) => {
 const host = '0.0.0.0';
 const port = process.env.PORT || 3001;
 
-app.listen(port, host, () => {
-    console.log(`Running server on port ${port}!`)
+// app.listen(port, host, () => {
+//     console.log(`Running server on port ${port}!`)
+// })
+
+app.listen(3001, 'localhost', () => {
+    console.log(`Running server on port 3001!`)
 })
