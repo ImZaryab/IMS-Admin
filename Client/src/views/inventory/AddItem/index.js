@@ -13,6 +13,22 @@ import {
 
 const AddItem = (props) => {
 
+  const handleSubmit = () => {
+
+  }
+
+  const handleItemNameChange = () => {
+
+  }
+
+  const handleItemDescChange = () =>{
+
+  }
+
+  const handleItemQuantityChange = () => {
+    
+  }
+
 // const [itemName, setItemName] = useState('');
 // const [itemQuantity, setItemQuantity] = useState(0);
 // const [itemDesc, setItemDesc] = useState('');
