@@ -91,6 +91,7 @@ const routes = [
 
   { path: '/inventorydata', name: 'Inventory', component: items, exact: true},
   { path: '/inventory/AddItem', name: 'Add item', component: AddItem},
+  { path: '/AddItem', name: 'Add Item', component: AddItem},
 
   { path: '/settings', name: 'Settings', component: settings}
 ];
