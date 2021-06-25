@@ -21,7 +21,6 @@ import {
   TheHeaderDropdownNotif,
   TheHeaderDropdownTasks
 }  from './index'
-import { Link } from 'react-router-dom'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
@@ -64,13 +63,13 @@ const TheHeader = () => {
 
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3" >
-          <CHeaderNavLink as={Link} to="/dashboard">Dashboard</CHeaderNavLink>
+          <CHeaderNavLink className="nav-link" to="/dashboard">Dashboard</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink as={Link} to="/users">Users</CHeaderNavLink>
+          <CHeaderNavLink className="nav-link" to="/users">Users</CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink as={Link} to="/settings">Settings</CHeaderNavLink>
+          <CHeaderNavLink className="nav-link" to="/settings">Settings</CHeaderNavLink>
         </CHeaderNavItem>
       </CHeaderNav>
 

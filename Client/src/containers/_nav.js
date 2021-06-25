@@ -21,7 +21,6 @@ const _nav =  [
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Inventory',
-    route: '/base',
     icon: 'cil-puzzle',
     _children: [
       {

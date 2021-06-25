@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios'
 
 import {
@@ -13,57 +13,41 @@ import {
 
 const AddItem = (props) => {
 
-  const handleSubmit = () => {
-
-  }
-
-  const handleItemNameChange = () => {
-
-  }
-
-  const handleItemDescChange = () =>{
-
-  }
-
-  const handleItemQuantityChange = () => {
-    
-  }
-
-// const [itemName, setItemName] = useState('');
-// const [itemQuantity, setItemQuantity] = useState(0);
-// const [itemDesc, setItemDesc] = useState('');
+const [itemName, setItemName] = useState('');
+const [itemQuantity, setItemQuantity] = useState(0);
+const [itemDesc, setItemDesc] = useState('');
 
 
-// const handleItemNameChange = (e) => {
-//   setItemName(e.target.value)
-// }
+const handleItemNameChange = (e) => {
+  setItemName(e.target.value)
+}
 
-// const handleItemQuantityChange = (e) => {
-//   setItemQuantity(e.target.value)
-// }
+const handleItemQuantityChange = (e) => {
+  setItemQuantity(e.target.value)
+}
 
-// const handleItemDescChange = (e) => {
-//   setItemDesc(e.target.value)
-// }
+const handleItemDescChange = (e) => {
+  setItemDesc(e.target.value)
+}
 
-// const handleSubmit = (e) => {
+const handleSubmit = (e) => {
   
-//   const ItemData = {
-//     ItemName: itemName, 
-//     ItemQuantity: itemQuantity, 
-//     ItemDescription: itemDesc
-//   }
+  const ItemData = {
+    ItemName: itemName, 
+    ItemQuantity: itemQuantity, 
+    ItemDescription: itemDesc
+  }
 
   // Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
   //   alert('Successfully Added Data!')
   // })
 
 
-//   Axios.post("localhost:3001/api/insert", ItemData).then(() => {
-//     alert('Successfully Added Data!')
-//   })
+  Axios.post("localhost:3001/api/insert", ItemData).then(() => {
+    alert('Successfully Added Data!')
+  })
 
-// }
+}
 
 
     return(

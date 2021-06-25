@@ -4,9 +4,6 @@ import CIcon from '@coreui/icons-react'
 import Axios from 'axios'
 import { useHistory } from 'react-router-dom';
 
-//import InventoryDataFill from './inventoryDataFill'
-
-
 const Item = ({match}) => {
 
   let history = useHistory();
@@ -18,7 +15,7 @@ useEffect(() => {
   //   setInventoryData(response.data)
   // })
 
-  Axios.get("localhost:3001/api/get").then((response) => {
+  Axios.get("http://localhost:3001/api/get").then((response) => {
     setInventoryData(response.data)
   })
 })
@@ -63,8 +60,8 @@ const handleDelete = (ItemID) => {
                 </tbody>
               </table>
               <div className="d-flex justify-content-center">
-              <button type="button" class="btn btn-ghost-success" onClick={handleUpdateRoute}>Update</button>
-              <button type="button" class="btn btn-ghost-danger" onClick={() => handleDelete(item.item_id.toString())}>Delete</button>
+              <button type="button" className="btn btn-ghost-success" onClick={handleUpdateRoute}>Update</button>
+              <button type="button" className="btn btn-ghost-danger" onClick={() => handleDelete(item.item_id.toString())}>Delete</button>
               </div>
           </CCardBody>
         </CCard>

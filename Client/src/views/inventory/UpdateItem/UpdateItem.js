@@ -23,7 +23,7 @@ useEffect(() => {
   //   setInventoryData(response.data)
   // })
 
-  Axios.get("localhost:3001/api/get").then((response) => {
+  Axios.get("http://localhost:3001/api/get").then((response) => {
     setInventoryData(response.data)
   })
 
@@ -56,7 +56,7 @@ const handleUpdate = () => {
     // Axios.put("https://ims-backend.herokuapp.com/api/update", ItemData)
     // history.push(`/inventorydata/${item.item_id}`)
 
-    Axios.put("localhost:3001/api/update", ItemData)
+    Axios.put("http://localhost:3001/api/update", ItemData)
     history.push(`/inventorydata/${item.item_id}`)
   }
 
@@ -85,7 +85,7 @@ const handleUpdate = () => {
                     <CInput type="text" defaultValue={itemDetails.item_description} name="itemDescription"  autoComplete="itemdesc" onChange={handleItemDescChange}/>
                   </CInputGroup>
                   <div className="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-ghost-success" >Save Changes</button>
+                  <button type="submit" className="btn btn-ghost-success" >Save Changes</button>
                   </div>
                 </CForm>
           </CCardBody>
