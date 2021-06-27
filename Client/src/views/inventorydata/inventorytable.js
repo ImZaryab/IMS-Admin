@@ -32,7 +32,7 @@ const Inventorytable = () => {
   const [inventoryData, setInventoryData] = useState([])
 
   const pageChange = newPage => {
-    currentPage !== newPage && history.push(`/all-inventory?page=${newPage}`)
+    currentPage !== newPage && history.push(`/inventorydata?page=${newPage}`)
   }
 
   useEffect(() => {

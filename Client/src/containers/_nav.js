@@ -35,6 +35,24 @@ const _nav =  [
       }
     ]
   },
+
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Contracts',
+    icon: 'cil-dollar',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Show Contracts',
+        to: '/contracts'
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'New Contract',
+        to: '/contracts'
+      }
+    ]
+  }
   
 ]
 

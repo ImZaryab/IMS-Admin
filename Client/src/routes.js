@@ -42,6 +42,7 @@ const item = React.lazy(() => import('./views/inventorydata/item'));
 const itemUpdate = React.lazy(()=> import('./views/inventory/UpdateItem/UpdateItem'));
 const items = React.lazy(()=> import('./views/inventorydata/inventorytable'));
 const settings = React.lazy(() => import('./views/settings/Settings'));
+const contracts = React.lazy(()=> import('./views/contracts/Contracts'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -93,7 +94,9 @@ const routes = [
   { path: '/inventory/AddItem', exact: true, name: 'Add item', component: AddItem},
   { path: '/AddItem', exact: true, name: 'Add Item', component: AddItem},
 
-  { path: '/settings', exact: true, name: 'Settings', component: settings}
+  { path: '/settings', exact: true, name: 'Settings', component: settings},
+
+  { path: '/contracts', exact: true, name: 'Contracts', component: contracts}
 ];
 
 export default routes;
