@@ -1,4 +1,3 @@
-import "./public_path";
 import React, { useState } from 'react';
 import Axios from 'axios'
 
@@ -39,14 +38,14 @@ const handleSubmit = (e) => {
     ItemDescription: itemDesc
   }
 
-  Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
-    alert('Successfully Added Data!')
-  })
-
-
-  // Axios.post("localhost:3001/api/insert", ItemData).then(() => {
+  // Axios.post("https://ims-backend.herokuapp.com/api/insert", ItemData).then(() => {
   //   alert('Successfully Added Data!')
   // })
+
+
+  Axios.post("http://localhost:3001/api/insert", ItemData).then(() => {
+    alert('Successfully Added Data!')
+  })
 
 }
 

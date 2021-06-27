@@ -26,7 +26,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res)=> {
-    console.log("Hello")
+    console.log("Server Call Successful!")
 })
 
 //READ ACCESS

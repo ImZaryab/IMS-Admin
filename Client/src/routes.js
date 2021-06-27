@@ -89,11 +89,11 @@ const routes = [
   { path: '/inventorydata/:id', exact: true, name: 'Item Details', component: item },
   { path: '/inventorydata/:id/:id', exact: true, name: 'Update Item Details', component: itemUpdate },
 
-  { path: '/inventorydata', name: 'Inventory', component: items, exact: true},
-  { path: '/inventory/AddItem', name: 'Add item', component: AddItem},
-  { path: '/AddItem', name: 'Add Item', component: AddItem},
+  { path: '/inventorydata', exact: true, name: 'Inventory', component: items, exact: true},
+  { path: '/inventory/AddItem', exact: true, name: 'Add item', component: AddItem},
+  { path: '/AddItem', exact: true, name: 'Add Item', component: AddItem},
 
-  { path: '/settings', name: 'Settings', component: settings}
+  { path: '/settings', exact: true, name: 'Settings', component: settings}
 ];
 
 export default routes;

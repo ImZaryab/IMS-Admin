@@ -26,12 +26,12 @@ const _nav =  [
       {
         _tag: 'CSidebarNavItem',
         name: 'Show Inventory',
-        to: '/inventorydata/inventorytable',
+        to: '/inventorydata',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Add Item',
-        to: '/inventory/AddItem',
+        to: '/AddItem',
       }
     ]
   },
