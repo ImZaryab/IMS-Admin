@@ -43,6 +43,8 @@ const itemUpdate = React.lazy(()=> import('./views/inventory/UpdateItem/UpdateIt
 const items = React.lazy(()=> import('./views/inventorydata/inventorytable'));
 const settings = React.lazy(() => import('./views/settings/Settings'));
 const contracts = React.lazy(()=> import('./views/contracts/Contracts'));
+const contractItem = React.lazy(()=> import('./views/contracts/ContractItem'));
+const contractUpdate = React.lazy(()=> import('./views/contracts/UpdateContract'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -96,7 +98,9 @@ const routes = [
 
   { path: '/settings', exact: true, name: 'Settings', component: settings},
 
-  { path: '/contracts', exact: true, name: 'Contracts', component: contracts}
+  { path: '/contracts', exact: true, name: 'Contracts', component: contracts},
+  { path: '/contracts/:id', exact: true, name: 'Contract Details', component: contractItem },
+  { path: '/contracts/:id/:id', exact: true, name: 'Update Contract', component: contractUpdate }
 ];
 
 export default routes;

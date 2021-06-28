@@ -14,11 +14,11 @@ import Axios from "axios";
 
 const getBadge = (status) => {
   switch (status) {
-    case "completed":
+    case "Completed":
       return "success";
-    case "InShipping":
+    case "Shipping":
       return "secondary";
-    case "pending":
+    case "Pending":
       return "warning";
     case "Unavailable":
       return "danger";
@@ -74,7 +74,7 @@ export default function Contracts() {
               activePage={page}
               clickableRows
               onRowClick={(item) =>
-                history.push(`/contracts/${item.item_id}`)
+                history.push(`/contracts/${item.contract_id}`)
               }
               scopedSlots={{
                 "contract_status": (item) => (

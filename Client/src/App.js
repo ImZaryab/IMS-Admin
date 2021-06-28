@@ -7,6 +7,7 @@ import Login from "./views/pages/fireBaseLogin/Login"
 import Settings from "./views/settings/Settings"
 import ForgotPassword from "./views/pages/fireBaseForgotPassword/ForgotPassword"
 import PrivateRoute from "./PrivateRoute";
+import { createBrowserHistory } from "history";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -23,11 +24,13 @@ const TheLayout = React.lazy(() => import("./containers/TheLayout"));
 const Page404 = React.lazy(() => import("./views/pages/page404/Page404"));
 const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 
+const history = createBrowserHistory({ basename: '/' });
+
 class App extends Component {
 
   render() {
     return (
-          <BrowserRouter>
+          <BrowserRouter basename="/">
             <React.Suspense fallback={loading}>
               <AuthProvider>
                 <Switch>

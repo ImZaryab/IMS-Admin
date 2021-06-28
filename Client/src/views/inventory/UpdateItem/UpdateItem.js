@@ -60,8 +60,6 @@ const handleUpdate = () => {
     history.push(`/inventorydata/${item.item_id}`)
   }
 
-  console.log(ItemData)
-
   return (
     <CRow>
       <CCol lg={6}>

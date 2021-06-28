@@ -4,19 +4,20 @@ import CIcon from '@coreui/icons-react'
 import Axios from 'axios'
 import { useHistory } from 'react-router-dom';
 
-const Item = ({match}) => {
+const ContractItem = ({match}) => {
 
   let history = useHistory();
 
-  const [inventoryData, setInventoryData] = useState([])
+  const [contractsData, setContractsData] = useState([]);
 
 useEffect(() => {
   // Axios.get("https://ims-backend.herokuapp.com/api/get").then((response) => {
   //   setInventoryData(response.data)
   // })
 
-  Axios.get("http://localhost:3001/api/get").then((response) => {
-    setInventoryData(response.data)
+  Axios.get("http://localhost:3001/api/getcontracts").then((response) => {
+    response.data[0].contract_date = response.data[0].contract_date.toString().split('T')[0]
+    setContractsData(response.data)
   })
 })
 
@@ -29,12 +30,12 @@ const handleDelete = (ItemID) => {
   history.goBack();
 }
 
-  const item = inventoryData.find( item => item.item_id.toString() === match.params.id)
+  const item = contractsData.find( item => item.contract_id.toString() === match.params.id)
   const itemDetails = item ? Object.entries(item) : 
     [['id', (<span><CIcon className="text-muted" /> Not found</span>)]]
 
   const handleUpdateRoute = () => {
-    if(item) history.push(`/inventorydata/${item.item_id}/${item.item_id}`)
+    if(item) history.push(`/contracts/${item.contract_id}/${item.contract_id}`)
   }
 
   return (
@@ -42,7 +43,7 @@ const handleDelete = (ItemID) => {
       <CCol lg={6}>
         <CCard>
           <CCardHeader>
-            Product ID: {match.params.id}
+            Contract ID: {match.params.id}
           </CCardHeader>
           <CCardBody>
               <table className="table table-striped table-hover">
@@ -70,4 +71,4 @@ const handleDelete = (ItemID) => {
   )
 }
 
-export default Item
+export default ContractItem
