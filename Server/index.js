@@ -58,6 +58,19 @@ app.put('/api/update', (req, res)=> {
     })
 })
 
+//Contract UPDATE ACCESS
+app.put('/api/updatecontract', (req, res)=>{
+    const Contracter = req.body.Contracter;
+    const ContractDescription = req.body.ContractDescription
+    const ContractStatus = req.body.ContractStatus
+    const ContractID = req.body.ContractID
+    const sqlUpdate = "UPDATE contracts SET contracter = ?, contract_description = ?, contract_status = ? WHERE contract_id = ?"
+
+    db.query(sqlUpdate, [Contracter, ContractDescription, ContractStatus, ContractID], (err, result)=>{
+        if(err) console.log(err)
+    })
+})
+
 //Inventory DELETE ACCESS
 app.delete('/api/delete/:item_id', (req, res)=> {
     const itemID = req.params.item_id
